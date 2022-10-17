@@ -1,0 +1,167 @@
+-- Instances:
+
+local ScreenGui = Instance.new("ScreenGui")
+local Frame = Instance.new("Frame")
+local SideBar = Instance.new("Frame")
+local ScriptsButton = Instance.new("TextButton")
+local home = Instance.new("ImageButton")
+local TopBar = Instance.new("Frame")
+local ImageLabel = Instance.new("ImageLabel")
+local UICorner = Instance.new("UICorner")
+local ScriptsFrame = Instance.new("Frame")
+local BloxFruit = Instance.new("TextButton")
+local KingLegacy = Instance.new("TextButton")
+local PetSimX = Instance.new("TextButton")
+local BloxFruitPaid = Instance.new("TextButton")
+
+--Properties:
+
+ScreenGui.Parent = game.Players.LocalPlayer:WaitForChild("PlayerGui")
+ScreenGui.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
+
+Frame.Parent = ScreenGui
+Frame.BackgroundColor3 = Color3.fromRGB(104, 104, 104)
+Frame.BorderSizePixel = 0
+Frame.Position = UDim2.new(0.22502172, 0, 0.305449933, 0)
+Frame.Size = UDim2.new(0, 632, 0, 383)
+
+SideBar.Name = "SideBar"
+SideBar.Parent = Frame
+SideBar.BackgroundColor3 = Color3.fromRGB(43, 43, 43)
+SideBar.BorderSizePixel = 0
+SideBar.Size = UDim2.new(0, 175, 0, 383)
+
+ScriptsButton.Name = "ScriptsButton"
+ScriptsButton.Parent = SideBar
+ScriptsButton.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+ScriptsButton.BorderSizePixel = 0
+ScriptsButton.Position = UDim2.new(0, 0, 0.161879897, 0)
+ScriptsButton.Size = UDim2.new(0, 175, 0, 35)
+ScriptsButton.Font = Enum.Font.SourceSans
+ScriptsButton.Text = "Main"
+ScriptsButton.TextColor3 = Color3.fromRGB(138, 138, 138)
+ScriptsButton.TextScaled = true
+ScriptsButton.TextSize = 14.000
+ScriptsButton.TextWrapped = true
+
+home.Name = "home"
+home.Parent = ScriptsButton
+home.BackgroundTransparency = 1.000
+home.LayoutOrder = 2
+home.Position = UDim2.new(0.180000007, 0, 0.157142758, 0)
+home.Size = UDim2.new(0, 25, 0, 25)
+home.ZIndex = 2
+home.Image = "rbxassetid://3926305904"
+home.ImageRectOffset = Vector2.new(964, 204)
+home.ImageRectSize = Vector2.new(36, 36)
+
+TopBar.Name = "TopBar"
+TopBar.Parent = Frame
+TopBar.BackgroundColor3 = Color3.fromRGB(43, 43, 43)
+TopBar.BorderSizePixel = 0
+TopBar.Position = UDim2.new(0.243670881, 0, 0, 0)
+TopBar.Size = UDim2.new(0, 478, 0, 47)
+
+ImageLabel.Parent = Frame
+ImageLabel.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+ImageLabel.Position = UDim2.new(0.0142405061, 0, 0, 0)
+ImageLabel.Size = UDim2.new(0, 48, 0, 47)
+ImageLabel.Image = "http://www.roblox.com/asset/?id=8642303922"
+
+UICorner.CornerRadius = UDim.new(0, 2147483647)
+UICorner.Parent = ImageLabel
+
+ScriptsFrame.Name = "ScriptsFrame"
+ScriptsFrame.Parent = Frame
+ScriptsFrame.BackgroundColor3 = Color3.fromRGB(71, 71, 71)
+ScriptsFrame.BackgroundTransparency = 1.000
+ScriptsFrame.BorderSizePixel = 0
+ScriptsFrame.Position = UDim2.new(0.276898742, 0, 0.122715406, 0)
+ScriptsFrame.Size = UDim2.new(0, 457, 0, 336)
+
+BloxFruit.Name = "BloxFruit"
+BloxFruit.Parent = ScriptsFrame
+BloxFruit.BackgroundColor3 = Color3.fromRGB(74, 74, 74)
+BloxFruit.BorderSizePixel = 0
+BloxFruit.Position = UDim2.new(0.0853391737, 0, 0.0625, 0)
+BloxFruit.Size = UDim2.new(0, 154, 0, 40)
+BloxFruit.Font = Enum.Font.SourceSans
+BloxFruit.Text = "Blox Fruit"
+BloxFruit.TextColor3 = Color3.fromRGB(0, 0, 0)
+BloxFruit.TextScaled = true
+BloxFruit.TextSize = 14.000
+BloxFruit.TextWrapped = true
+
+KingLegacy.Name = "King Legacy"
+KingLegacy.Parent = ScriptsFrame
+KingLegacy.BackgroundColor3 = Color3.fromRGB(74, 74, 74)
+KingLegacy.BorderSizePixel = 0
+KingLegacy.Position = UDim2.new(0.564551413, 0, 0.0625, 0)
+KingLegacy.Size = UDim2.new(0, 154, 0, 40)
+KingLegacy.Font = Enum.Font.SourceSans
+KingLegacy.Text = "King Legacy"
+KingLegacy.TextColor3 = Color3.fromRGB(0, 0, 0)
+KingLegacy.TextScaled = true
+KingLegacy.TextSize = 14.000
+KingLegacy.TextWrapped = true
+
+PetSimX.Name = "PetSimX"
+PetSimX.Parent = ScriptsFrame
+PetSimX.BackgroundColor3 = Color3.fromRGB(74, 74, 74)
+PetSimX.BorderSizePixel = 0
+PetSimX.Position = UDim2.new(0.0853391737, 0, 0.255952388, 0)
+PetSimX.Size = UDim2.new(0, 154, 0, 40)
+PetSimX.Font = Enum.Font.SourceSans
+PetSimX.Text = "PetSimX"
+PetSimX.TextColor3 = Color3.fromRGB(0, 0, 0)
+PetSimX.TextScaled = true
+PetSimX.TextSize = 14.000
+PetSimX.TextWrapped = true
+
+BloxFruitPaid.Name = "BloxFruitPaid"
+BloxFruitPaid.Parent = ScriptsFrame
+BloxFruitPaid.BackgroundColor3 = Color3.fromRGB(74, 74, 74)
+BloxFruitPaid.BorderSizePixel = 0
+BloxFruitPaid.Position = UDim2.new(0.0853391662, 0, 0.461309522, 0)
+BloxFruitPaid.Size = UDim2.new(0, 373, 0, 40)
+BloxFruitPaid.Font = Enum.Font.SourceSans
+BloxFruitPaid.Text = "Blox Fruit (With key but is the best script now)"
+BloxFruitPaid.TextColor3 = Color3.fromRGB(0, 0, 0)
+BloxFruitPaid.TextScaled = true
+BloxFruitPaid.TextSize = 14.000
+BloxFruitPaid.TextWrapped = true
+
+-- Scripts:
+
+local function BJLWQ_fake_script() -- BloxFruit.LocalScript 
+	local script = Instance.new('LocalScript', BloxFruit)
+
+	script.Parent.MouseButton1Click:Connect(function()
+		loadstring(game:HttpGet('https://raw.githubusercontent.com/SixnumzWOC/Sxnumz/main/SixnumFreeScript.lua'))()
+	end)
+end
+coroutine.wrap(BJLWQ_fake_script)()
+local function QOJSK_fake_script() -- KingLegacy.LocalScript 
+	local script = Instance.new('LocalScript', KingLegacy)
+
+	script.Parent.MouseButton1Click:Connect(function()
+		loadstring(game:HttpGet("https://raw.githubusercontent.com/CFrame3310/CFrameHub/main/KingLegacy.lua"))()
+	end)
+end
+coroutine.wrap(QOJSK_fake_script)()
+local function LIHEOYF_fake_script() -- PetSimX.LocalScript 
+	local script = Instance.new('LocalScript', PetSimX)
+
+	script.Parent.MouseButton1Click:Connect(function()
+		loadstring(game:HttpGet("https://raw.githubusercontent.com/ThunderZ-05/HUB/main/Script"))()
+	end)
+end
+coroutine.wrap(LIHEOYF_fake_script)()
+local function RCCVP_fake_script() -- BloxFruitPaid.LocalScript 
+	local script = Instance.new('LocalScript', BloxFruitPaid)
+
+	script.Parent.MouseButton1Click:Connect(function()
+		loadstring(game:HttpGet('https://raw.githubusercontent.com/acsu123/HOHO_H/main/Loading_UI'))()
+	end)
+end
+coroutine.wrap(RCCVP_fake_script)()
