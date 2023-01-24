@@ -1,0 +1,154 @@
+-- Gui to Lua
+-- Version: 3.2
+
+-- Instances:
+
+local MyLibary = Instance.new("ScreenGui")
+local Main = Instance.new("Frame")
+local UICorner = Instance.new("UICorner")
+local Toggle = Instance.new("TextButton")
+local UICorner_2 = Instance.new("UICorner")
+
+--Properties:
+
+MyLibary.Name = "MyLibary"
+MyLibary.Parent = game.Players.LocalPlayer:WaitForChild("PlayerGui")
+MyLibary.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
+
+Main.Name = "Main"
+Main.Parent = MyLibary
+Main.BackgroundColor3 = Color3.fromRGB(47, 47, 47)
+Main.Position = UDim2.new(0.427797824, 0, 0.389027417, 0)
+Main.Size = UDim2.new(0, 240, 0, 178)
+
+UICorner.CornerRadius = UDim.new(0, 20)
+UICorner.Parent = Main
+
+Toggle.Name = "Toggle"
+Toggle.Parent = Main
+Toggle.BackgroundColor3 = Color3.fromRGB(47, 47, 47)
+Toggle.Position = UDim2.new(0.262499988, 0, 0.252808988, 0)
+Toggle.Size = UDim2.new(0, 113, 0, 87)
+Toggle.Font = Enum.Font.SourceSans
+Toggle.Text = "Off"
+Toggle.TextColor3 = Color3.fromRGB(255, 0, 0)
+Toggle.TextScaled = true
+Toggle.TextSize = 14.000
+Toggle.TextWrapped = true
+
+UICorner_2.CornerRadius = UDim.new(0, 20)
+UICorner_2.Parent = Toggle
+
+-- Scripts:
+
+local function VJCJRZF_fake_script() -- Main.DragScript 
+	local script = Instance.new('LocalScript', Main)
+
+	--Not made by me, check out this video: https://www.youtube.com/watch?v=z25nyNBG7Js&t=22s
+	--Put this inside of your Frame and configure the speed if you would like.
+	--Enjoy! Credits go to: https://www.youtube.com/watch?v=z25nyNBG7Js&t=22s
+	
+	local UIS = game:GetService('UserInputService')
+	local frame = script.Parent
+	local dragToggle = nil
+	local dragSpeed = 0.25
+	local dragStart = nil
+	local startPos = nil
+	
+	local function updateInput(input)
+		local delta = input.Position - dragStart
+		local position = UDim2.new(startPos.X.Scale, startPos.X.Offset + delta.X,
+			startPos.Y.Scale, startPos.Y.Offset + delta.Y)
+		game:GetService('TweenService'):Create(frame, TweenInfo.new(dragSpeed), {Position = position}):Play()
+	end
+	
+	frame.InputBegan:Connect(function(input)
+		if (input.UserInputType == Enum.UserInputType.MouseButton1 or input.UserInputType == Enum.UserInputType.Touch) then 
+			dragToggle = true
+			dragStart = input.Position
+			startPos = frame.Position
+			input.Changed:Connect(function()
+				if input.UserInputState == Enum.UserInputState.End then
+					dragToggle = false
+				end
+			end)
+		end
+	end)
+	
+	UIS.InputChanged:Connect(function(input)
+		if input.UserInputType == Enum.UserInputType.MouseMovement or input.UserInputType == Enum.UserInputType.Touch then
+			if dragToggle then
+				updateInput(input)
+			end
+		end
+	end)
+	
+end
+coroutine.wrap(VJCJRZF_fake_script)()
+local function NYQC_fake_script() -- Toggle.LocalScript 
+	local script = Instance.new('LocalScript', Toggle)
+
+	_G.aimbot = false
+	local camera = game.Workspace.CurrentCamera
+	local localplayer = game:GetService("Players").LocalPlayer
+	local dist = math.huge
+	local target = nil
+	
+	script.Parent.MouseButton1Click:Connect(function()
+		if _G.aimbot == false then
+			_G.aimbot = true
+			script.Parent.TextColor3 = Color3.fromRGB(0,170,0)
+			script.Parent.Text = "On"
+			local function closetplayer()
+				local dist = math.huge
+				local target = nil
+				for i,v in pairs(game:GetService("Players"):GetPlayers()) do
+					if v ~= localplayer then
+						if v.Character and v.Character:FindFirstChild("Head") and v.TeamColor ~= localplayer.TeamColor and _G.aimbot then
+							local magnitude = (v.Character.Head.Position - localplayer.Character.Head.Position).magnitude
+							if magnitude < dist then
+								dist = magnitude
+								target = v
+							end
+							
+						end
+					end
+				end
+				return target
+			end
+			
+		else
+			_G.aimbot = false
+			script.Parent.TextColor3 = Color3.fromRGB(255,0,0)
+			script.Parent.Text = "Off"
+		end
+	end)
+	
+	local settings = {
+		keybind = Enum.UserInputType.MouseButton2
+	}
+	
+	local UIS = game:GetService("UserInputService")
+	local aiming = false
+	
+	UIS.InputBegan:Connect(function(inp)
+		if inp.UserInputType == settings.keybind then
+			aiming = true
+			
+		end
+	end)
+	
+	UIS.InputEnded:Connect(function(inp)
+		if inp.UserInputType == settings.keybind then
+			aiming = false
+	
+		end
+	end)
+	
+	game:GetService("RunService").RenderStepped:Connect(function()
+		if aiming then
+			camera.CFrame = CFrame.new(camera.CFrame.Position,closestplayer().Character.Head.Position)
+		end
+	end)
+end
+coroutine.wrap(NYQC_fake_script)()
